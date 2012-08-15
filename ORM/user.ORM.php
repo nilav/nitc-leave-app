@@ -1,7 +1,7 @@
 <?php
 
     require_once 'DB/initDB.php';
-    require_once 'DB/usersDB.php';
+    require_once 'DB/userDB.php';
     
     class userORM{
         private $DB=null;

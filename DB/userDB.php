@@ -12,7 +12,21 @@
  */
 class userDB extends DB{    
     
-        public function getUserFullName($id){
+        public function getUserName($id){
+            if($this->link){
+                $query="SELECT user_name FROM user WHERE user_id=$id";
+                $result = mysql_query($query,$this->link);
+                if(mysql_affected_rows()>0){
+                    $row=  mysql_fetch_row($result);
+                    $name=$row[0];
+                    return $name;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getFullName($id){
             if($this->link){
                 $query="SELECT first_name, last_name FROM user WHERE user_id=$id";
                 $result = mysql_query($query,$this->link);
@@ -20,6 +34,48 @@ class userDB extends DB{
                     $row=  mysql_fetch_row($result);
                     $name="$row[0] "."$row[1]";
                     return $name;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getFirstName($id){
+            if ($this->link){
+                $query="SELECT first_name FROM user WHERE user_id=$id";
+                $result= mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    $row= mysql_fetch_row($result);
+                    $firstname= $row[0];
+                    return $firstname;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getLastName($id){
+            if ($this->link){
+                $query="SELECT last_name FROM user WHERE user_id=$id";
+                $result= mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    $row= mysql_fetch_row($result);
+                    $lastname= $row[0];
+                    return $lastname;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getEmail($id){
+            if ($this->link){
+                $query="SELECT email FROM user WHERE user_id=$id";
+                $result= mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    $row= mysql_fetch_row($result);
+                    $email= $row[0];
+                    return $email;
                 }
                 return 0;
             }

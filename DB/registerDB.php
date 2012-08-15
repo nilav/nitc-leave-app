@@ -28,5 +28,17 @@
             return 0;
         }  
         
+        public function getDepartmentList(){
+            if($this->link){
+                $query = "SELECT department_id,dept_name FROM department";
+                $result= mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
     }
 ?>
