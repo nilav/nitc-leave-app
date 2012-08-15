@@ -40,5 +40,18 @@
             return 0;
         }
         
+        public function checkExistingUser($email){
+            if($this->link){
+                $query = "SELECT user_id FROM user WHERE email='$email'";
+                $result=  mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    $row = mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
     }
 ?>

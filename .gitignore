@@ -1,0 +1,8 @@
+*.swp
+*.conf
+*.ini
+*.inc.php
+*.swf
+*.flv
+*.orig
+uploads/
