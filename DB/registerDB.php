@@ -53,5 +53,35 @@
             return 0;
         }
         
+        public function insertUser($fname,$lname,$user_type,$email,$department,$pass1,$contact,$sex,$activated){
+            if($this->link){
+                $query = "INSERT INTO user (first_name, last_name, user_type, email, department_id, password, contact_number, gender, activated, add_time) VALUES ('$fname','$lname', $user_type, '$email', $department, '$pass1', $contact, '$sex', $activated, NOW())";
+                mysql_query($query, $this->link);
+                $query='SELECT last_insert_id() as lastId';
+                $result=  mysql_query($query);
+                while($row=@mysql_fetch_assoc($result)){
+                    $lastId=$row['lastId'];
+                    return $lastId;
+                }
+//                if(mysql_affacted_rows()>0){
+//                    return mysql_insert_id();
+//                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function insertStudentInfo($student_id, $roll_number){
+            if($this->link){
+                $query = "INSERT INTO student_info (student_id, roll_no) VALUES ($student_id, '$roll_number')";
+                mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    return 1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
     }
 ?>

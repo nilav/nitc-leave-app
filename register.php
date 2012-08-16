@@ -1,7 +1,9 @@
 <!--
+    
 To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <?php 
     $error=0;
     if(isset($_GET['error'])){
@@ -33,12 +35,35 @@ and open the template in the editor.
                         echo "Please enter valid email address.";
                         echo "</div>";
                         break;
+                    
                     case 2:
                         echo "<div class='form-error' style='display: block;'>";
                         echo "User already exist . <a href='forgot.php'>Forgot Password ?</a>";
                         echo "</div>";
                         break;
                     
+                    case 3:
+                        echo "<div class='form-error' style='display: block;'>";
+                        echo "Password should be atleast 6 chars.";
+                        echo "</div>";
+                        break;
+                    
+                    case 4:
+                        echo "<div class='form-error' style='display: block;'>";
+                        echo "Passwords are not matching.";
+                        echo "</div>";
+                        break;
+                    case 5:
+                        echo "<div class='form-error' style='display: block;'>";
+                        echo "Please select user type.";
+                        echo "</div>";
+                        break;
+                    
+                    case 6:
+                        echo "<div class='form-error' style='display: block;'>";
+                        echo "Please enter valid Contact Number.";
+                        echo "</div>";
+                                        
                     default:
                         break;
                 }
@@ -55,6 +80,11 @@ and open the template in the editor.
                     <input type="text" name="last_name" placeholder="Last Name" />
                 </div>
                 
+<!--                <div class="textbox">
+                    <span class="text">Desired User Name</span>
+                    <input type="text" name="user_name" placeholder="Desired User Name" />
+                </div>-->
+                
                 <div class="textbox">
                     <span class="text">Email</span>
                     <input type="text" name="email" placeholder="Email" />
@@ -68,6 +98,17 @@ and open the template in the editor.
                 <div class="password">
                     <span class="text">Confirm Password</span>
                     <input type="password" name="pass2" placeholder="Confirm Password" />
+                </div>
+                
+                <div class="textbox">
+                    <span class="text">Contact No.</span>
+                    <input type="text" name="contact" placeholder="Contact Number" />
+                </div>
+                
+                <div class="checkbox">
+                    <span class="text">Gender</span>
+                    <input type="radio" name="sex" value="M" checked="true" > Male</input>
+                    <input type="radio" name="sex" value="F" > Female</input>
                 </div>
                 
                 <div class="selectbox">
