@@ -1,10 +1,10 @@
 <?php
-  //  include 'redirect.php';
-    $username="";
+    include 'redirect.php';
+    $email="";
     $userpassword="";
     $error=0;
-//    if(isset($_POST["username"])){
-//        $username=$_POST["username"];
+//    if(isset($_POST["email"])){
+//        $email=$_POST["email"];
 //    }
     include 'includes/verify.php';
 ?>
@@ -16,11 +16,11 @@
     </head>
     <body>
         <div id="login_form">
-            <h1>Login U Child</h1>
+            <span class="heading">Login</span>
             <form action="" method="post" id="loginform">
                 <div id="user_name">
-                    <label>Name</label>
-                    <input type="text" name="username" value="<?php echo $username;?>" placeholder="User Name" id="username" required="true" maxlength="45" />
+                    <label>Email</label>
+                    <input type="text" name="email" value="<?php echo $email;?>" placeholder="Email" id="email" required="true" maxlength="45" />
                 </div>
                 <div id="password_text_box"><label>Password</label>
                     <input type="password" name="userpassword" value="<?php echo $userpassword;?>" placeholder="your Password" id='userpassword'required="true" />
@@ -36,6 +36,7 @@
                             }
                             if($error==2){
                                 echo "Wrong User name or Password";
+                                echo "<br/>Forget your password <a href='forgot.php'>Click here</a> to recover it";
                             }
                         ?>
                     </h3>

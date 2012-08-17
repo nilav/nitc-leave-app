@@ -1,15 +1,15 @@
 <?php
-    if(isset($_POST["username"])){
-        $username= $_POST["username"];
+    if(isset($_POST["email"])){
+        $email= $_POST["email"];
         $userpassword= $_POST["userpassword"];
-        if($username == "" || $userpassword == ""){
+        if($email == "" || $userpassword == ""){
             $error=1;
         }else{
             include("DB/initDB.php");
             include("DB/registerDB.php");
             
             $rDB = new registerDB();
-            $id= $rDB->checkLogin($username, $userpassword);
+            $id= $rDB->checkLogin($email, $userpassword);
             if($id){
                 $userType=$rDB->getUserType($id);
                 session_start();

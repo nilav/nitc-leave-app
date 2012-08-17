@@ -12,8 +12,25 @@
 //    }else{
 //        $id=1;
 //    }
-    $name=$uDB->getFullName($USERID);
+//    if($USERTYPE==5){
+//        $user = new studentUser($USERID, $DB);
+//    }
+    switch($USERTYPE){
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            $user= new studentUser($USERID, $uDB);
+            break;        
+           
+    }
     $firstname= $user->getFirstName();
+    $name= $user->getFullName();
 ?>
 <html>
     <head>

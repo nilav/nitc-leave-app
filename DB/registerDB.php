@@ -2,9 +2,9 @@
     class registerDB extends DB{
         
         
-        public function checkLogin($name, $password){
+        public function checkLogin($email, $password){
             if($this->link){
-                $query = "select user_id from user where user_name='$name' and password='$password' and activated=1";
+                $query = "select user_id from user where email='$email' and password='$password' and activated=1";
                 $result= mysql_query($query, $this->link);
                 if(mysql_affected_rows()>0){
                     $row = mysql_fetch_row($result);
@@ -71,9 +71,9 @@
             return 0;
         }
         
-        public function insertStudentInfo($student_id, $roll_number){
+        public function insertStudentInfo($student_id, $roll_number,$category){
             if($this->link){
-                $query = "INSERT INTO student_info (student_id, roll_no) VALUES ($student_id, '$roll_number')";
+                $query = "INSERT INTO student_info (student_id, roll_no, category) VALUES ($student_id, '$roll_number', '$category')";
                 mysql_query($query, $this->link);
                 if(mysql_affected_rows()>0){
                     return 1;

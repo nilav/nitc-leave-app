@@ -139,6 +139,11 @@ and open the template in the editor.
                     <span class="text">Roll No.</span>
                     <input type="text" name="roll_number" placeholder="Roll Number"/>
                 </div>
+
+                <div class="textbox student_info" >
+                    <span class="text">Category</span>
+                    <input type="text" name="category" placeholder="Category"/>
+                </div>
                 <div class="btn_1">
                     <input type="submit" Value="Submit" />
                 </div>

@@ -15,6 +15,7 @@
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
     $user_type=$_POST['user_type'];
+    $category = $_POST['category'];
 //    $user_name= $_POST['user_name'];
     
     $activated=0;
@@ -79,7 +80,7 @@
     }elseif($user_type == 5){
         $student_id = $rDB->insertUser($fname,$lname,$user_type,$email,$department,$pass1,$contact,$sex,$activated);
         if(isset($student_id)){
-            $rDB->insertStudentInfo($student_id, $roll_number);
+            $rDB->insertStudentInfo($student_id, $roll_number, $category);
         }
     }
     

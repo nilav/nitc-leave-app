@@ -1,6 +1,6 @@
 <?php
 
-/*
+/* TODO: Make sure that Only one HOD and FA could be in each deartment in database.
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -48,8 +48,62 @@ class user {
     public function getEmail(){
         return $this->email;
     
+    }    
+}
+
+class studentUser extends user{
+    public $department=0;
+    public $roll_no=0;
+    public $category=0;
+    
+    public function __construct($userid, $DB) {
+        parent::__construct($userid, $DB);
+        $this->roll_no = $this->DB->getRollNumber($userid);
+        $this->department = $this->DB->getDepartmentId($userid);
+        
+        $this->category= $this->DB->getCategory($userid);
     }
     
+    public function getDepartment(){
+        return $this->department;
+    }
+    
+    public function getRollNumber(){
+        return $this->roll_no;
+    }
+    
+    public function getCategory(){
+        return $this->category;
+    }   
+}
+
+class HODUser extends user{
+    public $department=0;
+    
+    public function __construct($userid, $DB) {
+        parent::__construct($userid, $DB);
+        $this->department = $this->DB->getDepartmentId($userid);
+    }
+    
+    public function getDepartment(){
+        return $this->department;
+    }
+}
+
+class FAUser extends user{
+    public $department=0;
+    
+    public function __construct($userid, $DB) {
+        parent::__construct($userid, $DB);
+        $this->department = $this->DB->getDepartmentId($userid);
+    }
+    
+    public function getDepartment(){
+        return $this->department;
+    }
+}
+
+class OSuser extends user{
     
 }
 

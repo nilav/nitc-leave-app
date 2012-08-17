@@ -81,6 +81,57 @@ class userDB extends DB{
             }
             return 0;
         }
+//        public function getDepartmentId($id){
+//            if ($this->link){
+//                $query="SELECT department_id FROM user WHERE user_id=$id";
+//                $result= mysql_query($query, $this->link);
+//                if(mysql_affected_rows()>0){
+//                    $row= mysql_fetch_row($result);
+//                    $lastname= $row[0];
+//                    return $lastname;
+//                }
+//                return 0;
+//            }
+//            return 0;
+//        }
+        public function getDepartmentId($id){
+            if($this->link){
+                $query="SELECT department_id FROM user WHERE user_id=$id";
+                $result = mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    $row = mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getRollNumber($id){
+            if($this->link){
+                $query="SELECT roll_no FROM student_info WHERE student_id = $id";
+                $result = mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    $row = mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+         public function getCategory($id){
+            if($this->link){
+                $query="SELECT category FROM student_info WHERE student_id = $id";
+                $result = mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    $row = mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
     
 }
 
