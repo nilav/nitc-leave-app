@@ -1,0 +1,18 @@
+/* 
+    Document   : profile
+    Created on : Aug 25, 2012, 11:26:25 PM
+    Author     : Nilav Nirav
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#leave_button{
+    background-color:yellow;
+    width:8em;
+    text-align: center;
+    
+}
