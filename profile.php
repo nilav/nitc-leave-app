@@ -26,15 +26,14 @@
 <html>
     <head>
         <title>Hello <?php echo $name; ?></title>
-        <link rel="stylesheet" media="screen" type="text/css" href="static/css/profile.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="static/css/profile.css" />        
+        <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css"/>
         
-        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
-<!--        <script type="text/javascript" src="static/js/jquery.js"></script>-->
-<!--        <script type="text/javascript" src="static/js/datepicker.js"></script>-->
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="static/js/application.js"></script>
+<!--    <script type="text/javascript" src="static/js/jquery.js"></script>-->
+       
     </head>
     <body>
         <?php 

@@ -6,14 +6,20 @@
 $('document').ready(function(){
     $('.error').hide();
     $('#apply_leave').hide();
+    $('#leave_history').hide();
     $('#s_date').datepicker({ dateFormat: "yy-mm-dd" });    
     $('#e_date').datepicker({ dateFormat: "yy-mm-dd" });
     
     
-    $('#leave_button').click(function(){
+    $('#leave_form_button').click(function(){
         $('#apply_leave').toggle('slow');
         
     });
+    $('#leave_history_button').click(function(){
+        $('#leave_history').toggle('medium');
+        
+    });
+    
    
 
 });

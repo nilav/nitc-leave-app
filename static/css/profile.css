@@ -6,13 +6,75 @@
         Purpose of the stylesheet follows.
 */
 
+
 root { 
     display: block;
 }
 
-#leave_button{
+.leave_button{
     background-color:yellow;
     width:8em;
     text-align: center;
+    border:2px solid #ccc;
     
+}
+/*.leave_history_header{
+    background-color:blue;
+    width:40em;
+    height:2em;
+}
+.leave_type, .leave_s_date, .leave_e_date, .leave_reason, .leave_status{
+    float:left;
+    padding:.5em 1.5em 1em 1.5em;
+    display:block;
+        
+}
+.leave_history_list{
+    width:40em;
+ }
+*/ 
+.leave_modify{
+     float:left;
+ }
+ #leave_history
+{
+    display:  table;
+    width:57em;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:.2em;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+    margin-left:10px;
+}
+
+.divRow
+{
+    display:table-row;
+    width:auto;
+
+}
+.headRow{
+    display:table-row;
+    color:blue;
+    font-size:1em; 
+    text-align:center;
+           
+}
+
+.divCell
+{
+    float:left;/*fix for  buggy browsers*/
+    display:block;
+    width:10em;
+    height:2em;
+    overflow:auto;
+    background-color:#ccc;
+    border-right:solid 1px #eee;
+    
+    padding-left:.5em;
+    padding-top:.3em;
+
+}
+.leave_edit{
+    width:3em;
 }

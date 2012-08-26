@@ -35,6 +35,18 @@ class leaveDB extends DB{
         }
         return false;
     }
+    
+    public function getLeaveHistory($id){
+        if($this->link){
+            $query = "SELECT * FROM application WHERE user_id = $id";
+            $result = mysql_query($query,$this->link);
+            if(mysql_affected_rows()>0){
+                return $result;
+            }
+            return false;
+        }
+        return false;
+    }
 }
 
 ?>
