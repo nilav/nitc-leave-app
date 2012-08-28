@@ -1,5 +1,5 @@
 <!--
-    
+TODO: Make sure password is used as md5
 To change this template, choose Tools | Templates
 and open the template in the editor.
 -->

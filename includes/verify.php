@@ -1,4 +1,9 @@
+
 <?php
+
+//    TODO: Make email and password checkin as MD5...
+
+
     if(isset($_POST["email"])){
         $email= $_POST["email"];
         $userpassword= $_POST["userpassword"];

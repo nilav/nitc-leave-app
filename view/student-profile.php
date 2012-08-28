@@ -71,40 +71,40 @@ and open the template in the editor.
     <?php while($row=  mysql_fetch_row($leave_history))
     {
     ?>
-    <tr>
-        <td class="leave_type">  <?php echo $row[2];?></td>
-        <td class="leave_s_date"><?php echo $row[3];?></td>
-        <td class="leave_e_date"><?php echo $row[4];?></td>
-        <td class="leave_reason"><?php echo $row[5];?></td>
-        <td class="leave_status">
-                <?php if($row[6]==0){?>
-                    Pending on FA
-                <?php }elseif($row[6]==1){?>
-                    Canceled by FA
-                <?php }elseif($row[6]==2){?>
-                    Pending on HOD
-                <?php }elseif($row[6]==3){?>
-                    Canceled by HOD
-                <?php }elseif($row[6]==4){?>
-                    Approved
-                <?php }elseif($row[6]==5){?>
-                    Canceled by you
-                <?php }else{?>
-                    Unknown Status
-                <?php }?>
-            
-        </td>
-        
-        
-        <td><div class="leave_edit divCell">
-            <?php if($row[6]==0 || $row[6]==2){?>
-                <div class="leave_modify"><img src="../static/images/modify.png" alt="Modify Leave" /></div>
-                <div class="leave_delete"><img src="../static/images/delete.png" alt="Delete Leave" /></div>
-            <?php } ?>
-            </div>
-        </td>
-<!--    </div>-->
-    </tr>
+        <tr id="applicationInfoRow<?php echo $row[0]?>">
+            <td class="leave_type">  <?php echo $row[2];?></td>
+            <td class="leave_s_date"><?php echo $row[3];?></td>
+            <td class="leave_e_date"><?php echo $row[4];?></td>
+            <td class="leave_reason"><?php echo $row[5];?></td>
+            <td class="leave_status">
+                    <?php if($row[6]==0){?>
+                        Pending on FA
+                    <?php }elseif($row[6]==1){?>
+                        Canceled by FA
+                    <?php }elseif($row[6]==2){?>
+                        Pending on HOD
+                    <?php }elseif($row[6]==3){?>
+                        Canceled by HOD
+                    <?php }elseif($row[6]==4){?>
+                        Approved
+                    <?php }elseif($row[6]==5){?>
+                        Canceled by you
+                    <?php }else{?>
+                        Unknown Status
+                    <?php }?>
+
+            </td>
+
+
+            <td><div class="leave_edit divCell">
+                <?php if($row[6]==0 || $row[6]==2){?>
+                    <div id="modify<?php echo $row[0];?>" class="leave_modify" onclick="editLeave(<?php echo $row[0];?>)"><img src="../static/images/modify.png" alt="Modify Leave" /></div>
+                    <div id="delete<?php echo $row[0];?>" class="leave_delete" onclick="deleteLeave(<?php echo $row[0];?>)"><img src="../static/images/delete.png" alt="Delete Leave" /></div>
+                <?php } ?>
+                </div>
+            </td>
+    <!--    </div>-->
+        </tr>
     
     <?php }?>
     </table>  

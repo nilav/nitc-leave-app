@@ -59,6 +59,30 @@ class leaveDB extends DB{
         }
         return false;
     }
+    
+    public function getApplicationInfo($aid){
+        if($this->link){
+            $query= "SELECT user_id,leave_type, starting_date, end_date, leave_reason, app_status FROM application WHERE app_id=$aid";
+            $result= mysql_query($query, $this->link);
+            if(mysql_affected_rows()==1){
+                return $result;
+            }
+            return false;
+        }
+        return false;
+    }
+    
+    public function updateLeaveInfo($apid,$s_date,$e_date,$leave_type,$leave_reason){
+        if($this->link){
+            $query="UPDATE application SET starting_date='$s_date', end_date='$e_date', leave_type='$leave_type', leave_reason='$leave_reason' WHERE app_id=$apid";
+            mysql_query($query, $this->link);
+            if(mysql_affected_rows()>0){
+                return 1;
+            }    
+            return 0;
+        }
+        return 0;
+    }
 }
 
 ?>

@@ -3,11 +3,14 @@
     include 'DB/initDB.php';
     include 'DB/userDB.php';
     include 'DB/leaveDB.php';
+    include 'DB/departmentDB.php';
     include 'classes/user.class.php';
+    
 //    $USERID & $USERTYPE are session variable....
     
     $uDB= new userDB();
     $lDB= new leaveDB();
+    
     
     $user= new user($USERID, $uDB);
     
@@ -30,9 +33,11 @@
         <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css"/>
         
         <script type="text/javascript" src="static/js/jquery.min.js"></script>
+<!--        <script type="text/javascript" src="static/js/jquery.js"></script>-->
         <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="static/js/application.js"></script>
-<!--    <script type="text/javascript" src="static/js/jquery.js"></script>-->
+        <script type="text/javascript" src="static/js/profile.js"></script>
+        
        
     </head>
     <body>

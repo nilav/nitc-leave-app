@@ -5,8 +5,7 @@
 -->
 <?php 
     $user_hod=2;
-    $leave_type=$lDB->getLeaveType();
-    $leave_history= $lDB->getLeaveHistory($USERID);
+   $dDB=new departmentDB();
 //    $department_type= $user->getDepartment();
     $activation_pending=$uDB->getPendingHodActivationRequest($user_hod);
     
@@ -29,7 +28,7 @@
     <?php while($row=  mysql_fetch_row($activation_pending))
     {
         $fname=$row[0].' '.$row[1];
-        $department_name=$uDB->getDepartmentName($row[7]);
+        $department_name=$dDB->getDepartmentName($row[7]);
     ?>
     <tr>
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>        

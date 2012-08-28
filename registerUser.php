@@ -9,13 +9,13 @@
     
     $fname = htmlspecialchars(trim($_POST['first_name']));
     $lname = htmlspecialchars(trim($_POST['last_name']));
-    $email = $_POST['email'];
-    $sex= $_POST['sex'];
-    $contact= $_POST['contact'];
-    $pass1 = $_POST['pass1'];
-    $pass2 = $_POST['pass2'];
-    $user_type=$_POST['user_type'];
-    $category = $_POST['category'];
+    $email = mysql_escape_string(trim($_POST['email']));
+    $sex= mysql_escape_string(trim($_POST['sex']));
+    $contact= mysql_escape_string(trim($_POST['contact']));
+    $pass1 = mysql_escape_string(trim($_POST['pass1']));
+    $pass2 = mysql_escape_string(trim($_POST['pass2']));
+    $user_type=mysql_escape_string(trim($_POST['user_type']));
+    $category = mysql_escape_string(trim($_POST['category']));
 //    $user_name= $_POST['user_name'];
     
     $activated=0;
