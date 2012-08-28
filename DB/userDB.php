@@ -106,6 +106,18 @@ class userDB extends DB{
             }
             return 0;
         }
+        public function getDepartmentName($dept_id){
+            if($this->link){
+                $query="SELECT dept_name FROM department WHERE department_id=$dept_id";
+                $result = mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    $row = mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
         
         public function getRollNumber($id){
             if($this->link){
@@ -127,6 +139,52 @@ class userDB extends DB{
                 if(mysql_affected_rows()>0){
                     $row = mysql_fetch_row($result);
                     return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
+        public function getPendingStudentActivationRequest($department_type,$user_type){
+            if($this->link){
+                $query= "SELECT a.first_name, a.last_name, a.email, a.contact_number,a.gender,a.activated,a.add_time, b.roll_no, b.category, a.user_id FROM user a,student_info b WHERE a.department_id=$department_type AND a.user_type=$user_type AND a.activated=0 AND a.user_id=b.student_id";
+                $result=  mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function getPendingApplication($department_type, $app_status){
+            If($this->link){
+                $query="SELECT c.app_id, c.user_id, a.first_name, a.last_name, b.roll_no, c.leave_type, c.leave_reason, c.starting_date, c.end_date, c.submission_time,c.app_id FROM user a, student_info b, application c WHERE a.department_id=$department_type AND a.user_type=5 AND a.user_id=b.student_id AND a.user_id=c.user_id AND c.app_status=$app_status";
+                $result= mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+         public function getPendingFaActivationRequest($department_type,$user_type){
+            if($this->link){
+                $query= "SELECT a.first_name, a.last_name, a.email, a.contact_number,a.gender,a.activated,a.add_time,a.user_id FROM user a WHERE a.department_id=$department_type AND a.user_type=$user_type AND a.activated=0";
+                $result=  mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
+                }
+                return 0;
+            }
+            return 0;
+        }
+         public function getPendingHodActivationRequest($user_type){
+            if($this->link){
+                $query= "SELECT a.first_name, a.last_name, a.email, a.contact_number,a.gender,a.activated,a.add_time, a.department_id, a.user_id FROM user a WHERE  a.user_type=$user_type AND a.activated=0";
+                $result=  mysql_query($query,  $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
                 }
                 return 0;
             }

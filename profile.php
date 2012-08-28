@@ -37,12 +37,24 @@
     </head>
     <body>
         <?php 
+    //For Admin user_type=1  
+    //For HOD user_type=2
+    //Faculty Advisor user_type=3
+    //Office Staff user_type=4
+    //Student user_type=5
+    //For Office Staff Department id is equal to 0 that means they don't belong to any department
             switch($USERTYPE){
                 case 1:
+                    $user=new AdminUser($USERID, $uDB);
+                    include 'view/admin-profile.php';
                     break;
                 case 2:
+                    $user=new HODUser($USERID, $uDB);
+                    include 'view/hod-profile.php';
                     break;
                 case 3:
+                    $user= new FAUser($USERID, $uDB);
+                    include 'view/fa-profile.php';
                     break;
                 case 4:
                     break;

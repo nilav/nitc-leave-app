@@ -142,7 +142,11 @@ and open the template in the editor.
 
                 <div class="textbox student_info" >
                     <span class="text">Category</span>
-                    <input type="text" name="category" placeholder="Category"/>
+                    <select name="category" />
+                        <option value="0">--Select--</option>
+                        <option value="GATE">GATE</option>
+                        <option value="SPONSORED">SPONSORED</option>                     
+                    </select>
                 </div>
                 <div class="btn_1">
                     <input type="submit" Value="Submit" />

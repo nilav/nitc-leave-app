@@ -19,7 +19,7 @@ $(document).ready(function(){
         
         if($(this).val()== 4 || $(this).val==0){
              $('.student_info').hide();
-             $('.department_info').hide();
+             $('.department_info').show();
         }
        
     });

@@ -10,7 +10,11 @@
 root { 
     display: block;
 }
-
+body{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #111;
+    font-size: 1em;
+}
 .leave_button{
     background-color:yellow;
     width:8em;
@@ -18,35 +22,7 @@ root {
     border:2px solid #ccc;
     
 }
-/*.leave_history_header{
-    background-color:blue;
-    width:40em;
-    height:2em;
-}
-.leave_type, .leave_s_date, .leave_e_date, .leave_reason, .leave_status{
-    float:left;
-    padding:.5em 1.5em 1em 1.5em;
-    display:block;
-        
-}
-.leave_history_list{
-    width:40em;
- }
-*/ 
-.leave_modify{
-     float:left;
- }
- #leave_history
-{
-    display:  table;
-    width:57em;
-    background-color:#eee;
-    border:1px solid  #666666;
-    border-spacing:.2em;/*cellspacing:poor IE support for  this*/
-    /* border-collapse:separate;*/
-    margin-left:10px;
-}
-
+/*Table Design*/
 .divRow
 {
     display:table-row;
@@ -66,15 +42,82 @@ root {
     float:left;/*fix for  buggy browsers*/
     display:block;
     width:10em;
-    height:2em;
+    height:1.5em;
     overflow:auto;
     background-color:#ccc;
-    border-right:solid 1px #eee;
-    
+    border-right:solid 1px #eee;    
     padding-left:.5em;
     padding-top:.3em;
 
 }
+.divCellSmall{
+    width: 5em;
+}
+.divCellMedium{
+    width: 8em;
+}
+.divCellLarge{
+    width: 15em;
+}
+/*Leave History page design in Student Profile page*/
+ #leave_history
+{
+    display:  table;
+    width:auto;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:.2em;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+    margin-left:10px;
+}
+
+.leave_modify{
+     float:left;
+     padding-right:.3em;
+     padding-bottom:.3em;
+     border-right:2px solid #eee;
+     
+ }
+ .leave_delete{
+     float:left;
+     padding-left:.5em;
+     padding-top:.4em;
+     
+     
+ }
+
 .leave_edit{
     width:3em;
+}
+
+/*FA pending request student account table design*/
+ #pending_activation_request
+{
+    display:  table;
+    width:70em;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:.2em;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+    margin-left:10px;
+}
+.pending_edit{
+    overflow: visible;
+    width:3.5em;
+}
+
+/*FA pending application request table design*/
+#pending_application_request{
+    display:  table;
+    width:75em;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:.2em;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+    margin-left:10px;
+    
+}
+.leave_reason{
+    font-size:.8em;
+    padding-bottom:.5em;
 }

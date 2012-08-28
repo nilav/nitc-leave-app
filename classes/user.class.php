@@ -103,8 +103,23 @@ class FAUser extends user{
     }
 }
 
-class OSuser extends user{
+class OSUser extends user{
+    public $department=0;
     
+    public function __construct($userid, $DB) {
+        parent::__construct($userid, $DB);
+        $this->department = $this->DB->getDepartmentId($userid);
+    }
+    
+    public function getDepartment(){
+        return $this->department;
+    }
+    
+}
+class AdminUser extends user{
+    public function __construct($userid, $DB) {
+        parent::__construct($userid, $DB);
+    }
 }
 
 ?>
