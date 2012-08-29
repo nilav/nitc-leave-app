@@ -32,7 +32,7 @@
     {
         $fname=$row[0].' '.$row[1];
     ?>
-    <tr>
+    <tr id="userInfoRow<?php echo $row[7];?>">
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>        
         <td><div class="user_type divCell">Faculty Advisor</div></td>
         <td><div class="email divCell divCellLarge"><?php echo $row[2] ?></div></td>
@@ -53,7 +53,7 @@
     {
         $fname=$row[0].' '.$row[1];
     ?>
-   <tr>
+    <tr id="userInfoRow<?php echo $row[7];?>">
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>        
         <td><div class="user_type divCell">Faculty Advisor</div></td>
         <td><div class="email divCell divCellLarge"><?php echo $row[2] ?></div></td>
@@ -63,8 +63,8 @@
         
         <td>
             <div class="pending_edit divCell">
-                <div class="leave_modify"><img src="../static/images/approve.png" alt="Approve Request" /></div>
-                <div class="leave_delete"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
+                <div id="approve<?php echo $row[7];?>" class="leave_modify" onclick="approveRequest(<?php echo $row[7];?>)"><img src="../static/images/approve.png" alt="Approve Request" /></div>
+                <div id="reject<?php echo $row[9];?>" class="leave_delete" onclick="rejectRequest(<?php echo $row[9];?>)"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
             </div>
         </td>
     </tr>  
@@ -74,7 +74,7 @@
 <?php 
 //Getting Pending Application List...
     $app_status=2; //Pending on HOD
-    $application_pending=$uDB->getPendingApplication($department_type, $app_status);
+    $application_pending=$lDB->getPendingApplication($department_type, $app_status);
 ?>
 <div id="pending_account_button">
      <span class="toggle_button">Pending Leave Application Requests</span>    
@@ -96,7 +96,7 @@
     {
         $fname=$row[2].' '.$row[3];
     ?>
-    <tr>
+    <tr id="pendingAppInfoRow<?php echo $row[0];?>">
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>
         <td><div class="roll_no divCell divCellMedium"><?php echo $row[4] ?></div></td>
         <td><div class="leave_type divCell divCellMedium"><?php echo $row[5] ?></div></td>

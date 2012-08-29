@@ -36,7 +36,8 @@
 <!--        <script type="text/javascript" src="static/js/jquery.js"></script>-->
         <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="static/js/application.js"></script>
-        <script type="text/javascript" src="static/js/profile.js"></script>
+        <script type="text/javascript" src="static/js/student_profile.js"></script>
+        <script type="text/javascript" src="static/js/fa_profile.js"></script>
         
        
     </head>

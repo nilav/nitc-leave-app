@@ -106,8 +106,23 @@ class userDB extends DB{
             }
             return 0;
         }
-       
         
+        public function  getUserType($id){
+            if($this->link){
+                $query="SELECT user_type FROM user WHERE user_id=$id";
+                $result= mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    $row= mysql_fetch_row($result);
+                    return $row[0];
+                }
+                return 0;
+            }
+            return 0;
+        }
+
+
+
+
         public function getRollNumber($id){
             if($this->link){
                 $query="SELECT roll_no FROM student_info WHERE student_id = $id";
@@ -145,17 +160,7 @@ class userDB extends DB{
             return 0;
         }
         
-        public function getPendingApplication($department_type, $app_status){
-            If($this->link){
-                $query="SELECT c.app_id, c.user_id, a.first_name, a.last_name, b.roll_no, c.leave_type, c.leave_reason, c.starting_date, c.end_date, c.submission_time,c.app_id FROM user a, student_info b, application c WHERE a.department_id=$department_type AND a.user_type=5 AND a.user_id=b.student_id AND a.user_id=c.user_id AND c.app_status=$app_status";
-                $result= mysql_query($query,  $this->link);
-                if(mysql_affected_rows()>0){
-                    return $result;
-                }
-                return 0;
-            }
-            return 0;
-        }
+        
         
          public function getPendingFaActivationRequest($department_type,$user_type){
             if($this->link){
@@ -179,7 +184,42 @@ class userDB extends DB{
             }
             return 0;
         }
-    
+        
+        public function approveRequest($uid){
+            if($this->link){
+                $query="UPDATE user SET activated=1 WHERE user_id=$uid";
+                mysql_query($query,$this->link);
+                if(mysql_affected_rows()>0){
+                    return 1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function deleteStudentInfo($uid){
+            if($this->link){
+                $query="DELETE FROM student_info where student_id=$uid";
+                mysql_query($query,$this->link);
+                if(mysql_affected_rows()>0){
+                    return 1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+        public function deleteUser($uid){
+            if($this->link){
+                $query="DELETE FROM user where user_id=$uid";
+                mysql_query($query,$this->link);
+                if(mysql_affected_rows()>0){
+                    return 1;
+                }
+                return 0;
+            }
+            return 0;
+        }
 }
 
 ?>

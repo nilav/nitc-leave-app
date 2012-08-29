@@ -32,7 +32,7 @@
     {
         $fname=$row[0].' '.$row[1];
     ?>
-    <tr>
+    <tr id="userInfoRow<?php echo $row[9];?>">
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>
         <td><div class="roll_no divCell divCellMedium"><?php echo $row[7] ?></div></td>
         <td><div class="category divCell divCellSmall"><?php echo $row[8] ?></div></td>
@@ -41,9 +41,9 @@
         <td><div class="contact divCell divCellMedium"><?php echo $row[3] ?></div></td>
         <td><div class="request_time divCell"><?php echo $row[6] ?></div></td>
         
-        <td><div class="pending_edit divCell">
-                <div class="leave_modify"><img src="../static/images/approve.png" alt="Approve Request" /></div>
-                <div class="leave_delete"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
+        <td><div id="pending_edit<?php echo $row[9];?>" class="pending_edit divCell">
+                <div id="approve<?php echo $row[9];?>" class="leave_modify" onclick="approveRequest(<?php echo $row[9];?>)"><img src="../static/images/approve.png" alt="Approve Request" /></div>
+                <div id="reject<?php echo $row[9];?>" class="leave_delete" onclick="rejectRequest(<?php echo $row[9];?>)"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
         </div></td>
     </tr>   
    
@@ -53,7 +53,7 @@
 <?php 
 //Getting Pending Application List...
     $app_status=0;  //pending on FA
-    $application_pending=$uDB->getPendingApplication($department_type, $app_status);
+    $application_pending=$lDB->getPendingApplication($department_type, $app_status);
 ?>
 <div id="pending_account_button">
      <span class="toggle_button">Pending Leave Application Requests</span>    
@@ -74,18 +74,18 @@
     {
         $fname=$row[2].' '.$row[3];
     ?>
-    <tr>
+    <tr id="pendingAppInfoRow<?php echo $row[0];?>">
         <td><div class="name divCell">  <?php echo $fname; ?></div></td>
-        <td><div class="roll_no divCell divCellMedium"><?php echo $row[4] ?></div></td>
-        <td><div class="leave_type divCell divCellMedium"><?php echo $row[5] ?></div></td>
-        <td><div class="leave_reason divCell divCellLarge"><?php echo $row[6] ?></div></td>
-        <td><div class="s_date divCell divCellMedium"><?php echo $row[7] ?></div></td>
-        <td><div class="e_date divCell divCellMedium"><?php echo $row[8] ?></div></td>
+        <td><div class="roll_no divCell divCellMedium"><?php echo $row[4]; ?></div></td>
+        <td><div class="leave_type divCell divCellMedium"><?php echo $row[5]; ?></div></td>
+        <td><div class="leave_reason divCell divCellLarge"><?php echo $row[6]; ?></div></td>
+        <td><div class="s_date divCell divCellMedium"><?php echo $row[7]; ?></div></td>
+        <td><div class="e_date divCell divCellMedium"><?php echo $row[8]; ?></div></td>
         <td><div class="request_time divCell"><?php echo $row[9] ?></div></td>
      
-        <td><div class="pending_edit divCell">
-                <div class="leave_modify"><img src="../static/images/approve.png" alt="Approve Leave" title="Approve Leave" /></div>
-                <div class="leave_delete"><img src="../static/images/cancel.png" alt="Reject Leave" title="Reject Leave"/></div>            
+        <td><div id="pending_edit<?php echo $row[0]; ?>"class="pending_edit divCell">
+                <div class="leave_modify" onclick="approveLeave(<?php echo $row[0]; ?>)"><img src="../static/images/approve.png" alt="Approve Leave" title="Approve Leave" /></div>
+                <div class="leave_delete" onclick="rejectLeave(<?php echo $row[0]; ?>)"><img src="../static/images/cancel.png" alt="Reject Leave" title="Reject Leave"/></div>            
         </div></td>
     </tr>
     
