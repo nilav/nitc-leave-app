@@ -23,21 +23,14 @@
             echo $html;
         }
     }
-    function modifyLeave($lDB, $apid, $approve){
-        $re= $lDB->modifyLeave($apid, $approve);
+    function addDepartment($dDB, $dept_name, $dept_desc){
+        $re= $dDB->addDepartment($dept_name, $dept_desc);
         if($re){
-            if($approve==4){
-                $html="";
-                $html=$html.'<span class="approved">Approved</span>';
-                echo $html;
-            }elseif($approve==3){
-                $html="";
-                $html=$html.'<span class="approved">Rejected</span>';
-                echo $html;
-            }
+            $html="";
+            $html=$html.'<tr><td>'.$dept_name.'</td><td colspan="2">'.$dept_desc.'</td></tr>';
+            echo $html;
         }
     }
-
 
 
 
@@ -46,10 +39,12 @@
     require_once '../DB/initDB.php';
     require_once '../DB/leaveDB.php';
     require_once '../DB/userDB.php';
+    require_once '../DB/departmentDB.php';
     require_once '../checkid.php';
     
     $lDB= new leaveDB();
     $uDB= new userDB();
+    $dDB= new departmentDB();
     $param= mysql_escape_string(trim($_POST['param']));
     
     if($param==approveRequest){
@@ -58,13 +53,11 @@
     }elseif($param==rejectRequest){
         $uid= mysql_escape_string(trim($_POST['uid']));
         rejectRequest($uDB, $uid);
-    }elseif($param==modifyLeave){
-        $apid=  mysql_escape_string(trim($_POST['apid']));
-        $approve=4; //will set app_status to 4 which show that leave is approved by HOD     
-        modifyLeave($lDB, $apid,$approve);
-    }elseif($param==rejectLeave){
-        $apid= mysql_escape_string(trim($_POST['apid']));
-        $reject=3; //will set app_status to  which show that leave is rejected by HOD
-        modifyLeave($lDB, $apid, $reject);
+    }elseif($param==addDepartment){
+        $dept_name=  mysql_escape_string(trim($_POST['dept_name']));
+        $dept_desc= mysql_escape_string(trim($_POST['dept_desc']));
+        
+        addDepartment($dDB, $dept_desc, $dept_name);
+        
     }
 ?>

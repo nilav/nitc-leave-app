@@ -55,10 +55,14 @@ and open the template in the editor.
 
 
 <!--Cancel Your Leave-->
+
+
 <div id="leave_history_button" class="leave_button" >
     <span class="toggle_button">Leave History</span>
 </div>
+
 <div id="leave_history">
+    <?php if($leave_history){ ?>
     <table border="1">
         <tr>
         <th> Leave Type</th>
@@ -108,4 +112,9 @@ and open the template in the editor.
     
     <?php }?>
     </table>  
+    <?php }else{ ?>
+    <span class="no_request"> You haven't applied for any leave yet.</span>
+<?php } ?>
 </div>
+
+ 

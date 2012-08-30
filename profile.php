@@ -35,9 +35,9 @@
         <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <!--        <script type="text/javascript" src="static/js/jquery.js"></script>-->
         <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="static/js/application.js"></script>
-        <script type="text/javascript" src="static/js/student_profile.js"></script>
-        <script type="text/javascript" src="static/js/fa_profile.js"></script>
+        
+        
+       
         
        
     </head>
@@ -51,22 +51,27 @@
     //For Office Staff Department id is equal to 0 that means they don't belong to any department
             switch($USERTYPE){
                 case 1:
-                    $user=new AdminUser($USERID, $uDB);
-                    include 'view/admin-profile.php';
+                    $user=new AdminUser($USERID, $uDB);?>
+                    <script type="text/javascript" src="static/js/admin_profile.js"></script>
+                   <?php include 'view/admin-profile.php';
                     break;
                 case 2:
-                    $user=new HODUser($USERID, $uDB);
-                    include 'view/hod-profile.php';
+                    $user=new HODUser($USERID, $uDB);?>
+                     <script type="text/javascript" src="static/js/hod_profile.js"></script>
+                 <?php   include 'view/hod-profile.php';
                     break;
                 case 3:
-                    $user= new FAUser($USERID, $uDB);
-                    include 'view/fa-profile.php';
+                    $user= new FAUser($USERID, $uDB); ?>
+                    <script type="text/javascript" src="static/js/fa_profile.js"></script>
+                 <?php   include 'view/fa-profile.php';
                     break;
                 case 4:
                     break;
                 case 5:
-                    $user= new studentUser($USERID, $uDB);
-                    include 'view/student-profile.php';
+                    $user= new studentUser($USERID, $uDB); ?>
+                    <script type="text/javascript" src="static/js/application.js"></script>
+                    <script type="text/javascript" src="static/js/student_profile.js"></script>
+                   <?php include 'view/student-profile.php';
                     break;   
             }
         ?>

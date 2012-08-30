@@ -17,6 +17,7 @@
 </div>
 
 <div id="pending_activation_request">
+    <?php if($activation_pending){ ?> 
     <table border="1">
         <tr>
             <th> <div class="name divCell">  Name</div></th>
@@ -49,6 +50,9 @@
    
     <?php }?>
 </table>
+    <?php }else{ ?>
+    <span class="no_request"> You haven't any account activation request.</span>
+<?php } ?>
 </div>
 <?php 
 //Getting Pending Application List...
@@ -60,6 +64,7 @@
 </div>
 
 <div id="pending_application_request">
+    <?php if($application_pending){ ?>
     <table border="1">
     <tr>
         <th><div class="name divCell">  Name</div></th>
@@ -91,4 +96,7 @@
     
     <?php }?>
     </table>
+    <?php }else{ ?>
+    <span class="no_request"> You haven't any application for leave.</span>
+<?php } ?>
 </div>

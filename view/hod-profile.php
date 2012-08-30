@@ -19,6 +19,7 @@
 </div>
 
 <div id="pending_activation_request">
+    <?php if($activation_pending || $activation_pending1){ ?>
     <table border="1">
         <tr>
             <th><div class="name divCell">  Name</div>        
@@ -41,9 +42,9 @@
         <td><div class="request_time divCell"><?php echo $row[6] ?></div></td>
         
         <td>
-            <div class="pending_edit divCell">
-                <div class="leave_modify"><img src="../static/images/approve.png" alt="Approve Request" /></div>
-                <div class="leave_delete"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
+            <div id="pending_edit<?php echo $row[7];?>" class="pending_edit divCell">
+                <div id="approve<?php echo $row[7];?>" class="leave_modify" onclick="approveRequest(<?php echo $row[7];?>)"><img src="../static/images/approve.png" alt="Approve Request" /></div>
+                <div id="reject<?php echo $row[7];?>" class="leave_delete" onclick="rejectRequest(<?php echo $row[7];?>)"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
             </div>
         </td>
     </tr>  
@@ -62,15 +63,20 @@
         <td><div class="request_time divCell"><?php echo $row[6] ?></div></td>
         
         <td>
-            <div class="pending_edit divCell">
+            <div id="pending_edit<?php echo $row[7];?>" class="pending_edit divCell">
                 <div id="approve<?php echo $row[7];?>" class="leave_modify" onclick="approveRequest(<?php echo $row[7];?>)"><img src="../static/images/approve.png" alt="Approve Request" /></div>
-                <div id="reject<?php echo $row[9];?>" class="leave_delete" onclick="rejectRequest(<?php echo $row[9];?>)"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
+                <div id="reject<?php echo $row[7];?>" class="leave_delete" onclick="rejectRequest(<?php echo $row[7];?>)"><img src="../static/images/cancel.png" alt="Reject request" /></div>            
             </div>
         </td>
     </tr>  
     <?php }?>
     </table>
+    <?php }else{ ?>
+    <span class="no_request"> You have no new account verification request.</span>
+<?php } ?>
 </div>
+
+
 <?php 
 //Getting Pending Application List...
     $app_status=2; //Pending on HOD
@@ -81,6 +87,7 @@
 </div>
 
 <div id="pending_application_request">
+    <?php if($application_pending){ ?>
     <table border="1">
         <tr>
             <th><div class="name divCell">  Name</div></th>
@@ -106,12 +113,15 @@
         <td><div class="request_time divCell"><?php echo $row[9] ?></div></td>
         
         <td>
-            <div class="pending_edit divCell">
-                <div class="leave_modify"><img src="../static/images/approve.png" alt="Approve Leave" title="Approve Leave" /></div>
-                <div class="leave_delete"><img src="../static/images/cancel.png" alt="Reject Leave" title="Reject Leave"/></div>            
+            <div id="pending_edit<?php echo $row[0]; ?>" class="pending_edit divCell">
+                <div class="leave_modify" onclick="approveLeave(<?php echo $row[0]; ?>)"><img src="../static/images/approve.png" alt="Approve Leave" title="Approve Leave" /></div>
+                <div class="leave_delete" onclick="rejectLeave(<?php echo $row[0]; ?>)"><img src="../static/images/cancel.png" alt="Reject Leave" title="Reject Leave"/></div>            
             </div>
         </td>
     </tr>  
     <?php }?>
     </table>
+     <?php }else{ ?>
+        <span class="no_request"> You have no new leave application request.</span>
+    <?php } ?>
 </div>
