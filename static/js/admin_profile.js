@@ -46,7 +46,7 @@ function addDepartment(){
     dept_desc=$input.eq(1).val();
     if(dept_name==''){
         $input.eq(0).attr('placeholder',html);
-        alert(dept_desc);
+//        alert(dept_desc);
     }else if(dept_desc==''){
         $input.eq(1).attr('placeholder',html);      
     }else{
