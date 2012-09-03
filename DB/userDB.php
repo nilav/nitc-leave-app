@@ -220,6 +220,18 @@ class userDB extends DB{
             }
             return 0;
         }
+        
+        public function getStudentInfo(){
+            if($this->link){
+                $query="SELECT student_id,roll_no, category FROM student_info";
+                $result= mysql_query($query, $this->link);
+                if(mysql_affected_rows()>0){
+                    return $result;
+                }
+                return false;
+            }
+            return false;
+        }
 }
 
 ?>

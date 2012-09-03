@@ -47,6 +47,17 @@ class leaveDB extends DB{
         }
         return false;
     }
+    public function getLeaveHistoryByStatus($id){
+        if($this->link){
+            $query="SELECT * FROM application WHERE user_id=$id AND (app_status=1 OR app_status=3 OR app_status=4)";
+            $result= mysql_query($query, $this->link);
+            if(mysql_affected_rows()>0){
+                return $result;
+            }
+            return false;
+        }
+        return false;
+    }
     
     public function getUserLeaveDetails($dept_id){
         if($this->link){

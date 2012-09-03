@@ -7,8 +7,17 @@ $('document').ready(function(){
     $('.error').hide();
     $('#apply_leave').hide();
     $('#leave_history').hide();
-    $('#s_date').datepicker({ dateFormat: "yy-mm-dd" });    
-    $('#e_date').datepicker({ dateFormat: "yy-mm-dd" });
+    $('#s_date').datepicker({ 
+        dateFormat: "yy-mm-dd",
+        showOn: "both"    
+        
+    });  
+    
+    $('#e_date').datepicker({ 
+        dateFormat: "yy-mm-dd" 
+        
+    });
+
     
     
     $('#leave_form_button').click(function(){
@@ -48,6 +57,23 @@ function applyLeave(){
             $("textarea#leave_reason").focus();
             return false;
         }
+        
+        var startDate = new Date($('#s_date').val());
+        var endDate = new Date($('#e_date').val());
+        if (startDate > endDate){
+            alert("Enter proper date");
+            return false;
+        }
+//        var s_date1 = $('#s_date').val();
+//        var e_date1 = $('#e_date').val();
+        var diff = new Date(endDate - startDate);
+        var days = diff/1000/60/60/24;
+        var allowed_leave=$("#balanced_leave"+leave_type).val();
+        if(days>allowed_leave){
+            alert("your balanced leave is low then applied number of day");
+            return false;
+        }
+
         
 //        Submitting value of application form from student-profile.php through ajax
 

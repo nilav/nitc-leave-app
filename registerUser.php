@@ -76,7 +76,7 @@
     }elseif($user_type == 3){
         $rDB->insertUser($fname,$lname,$user_type,$email,$department,$pass1,$contact,$sex,$activated);
     }elseif($user_type == 4){
-        $rDB->insertUser($fname,$lname,$user_type,$email,0,$pass1,$contact,$sex,$activated);
+        $rDB->insertUser($fname,$lname,$user_type,$email,$department,$pass1,$contact,$sex,$activated);
     }elseif($user_type == 5){
         $student_id = $rDB->insertUser($fname,$lname,$user_type,$email,$department,$pass1,$contact,$sex,$activated);
         if(isset($student_id)){

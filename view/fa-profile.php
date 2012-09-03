@@ -77,12 +77,13 @@
     </tr>
     <?php while($row=  mysql_fetch_row($application_pending))
     {
+        $leave_name=$lDB->getLeaveName($row[5]);
         $fname=$row[2].' '.$row[3];
     ?>
     <tr id="pendingAppInfoRow<?php echo $row[0];?>">
-        <td><div class="name divCell">  <?php echo $fname; ?></div></td>
+        <td><div class="name divCell"><a class="personPopupTrigger" href="" rel="2128,<?php echo $row[1]; ?>">  <?php echo $fname; ?></a></div></td>
         <td><div class="roll_no divCell divCellMedium"><?php echo $row[4]; ?></div></td>
-        <td><div class="leave_type divCell divCellMedium"><?php echo $row[5]; ?></div></td>
+        <td><div class="leave_type divCell divCellMedium"><?php echo $leave_name; ?></div></td>
         <td><div class="leave_reason divCell divCellLarge"><?php echo $row[6]; ?></div></td>
         <td><div class="s_date divCell divCellMedium"><?php echo $row[7]; ?></div></td>
         <td><div class="e_date divCell divCellMedium"><?php echo $row[8]; ?></div></td>

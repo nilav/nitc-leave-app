@@ -31,10 +31,12 @@
         <title>Hello <?php echo $name; ?></title>
         <link rel="stylesheet" media="screen" type="text/css" href="static/css/profile.css" />        
         <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css"/>
+        <link rel="stylesheet" type="text/css" href="static/css/popup.css"/>
         
         <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <!--        <script type="text/javascript" src="static/js/jquery.js"></script>-->
         <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="static/js/profile.js"></script>
         
         
        
@@ -66,6 +68,9 @@
                  <?php   include 'view/fa-profile.php';
                     break;
                 case 4:
+                    $user=new OSUser($USERID, $uDB);?>
+                    <script type="text/javascript" src="static/js/os-profile.js"></script>
+<?php                    include 'view/os-profile.php';
                     break;
                 case 5:
                     $user= new studentUser($USERID, $uDB); ?>

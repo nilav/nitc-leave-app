@@ -22,7 +22,9 @@ and open the template in the editor.
             <th>Used</th>
             <th>Remaining</th>
         </tr>
-    <?php while($row1=  mysql_fetch_row($leave_type1)) {
+    <?php
+        $counter=0;
+        while($row1=  mysql_fetch_row($leave_type1)) {
         $max_leave=$row1[3];
         $app_history=$lDB->getLeaveTypeHistory($USERID,$row1[0]);//here $row[0] is leave_id
         $used_leave=0;
@@ -45,7 +47,9 @@ and open the template in the editor.
             <td><?php echo $row1[1];?></td>
             <td><?php echo $max_leave;?></td>
             <td><?php echo $used_leave;?></td>
-            <td><?php echo $balanced_leave; ?></td>
+            <td><?php echo $balanced_leave; ?>
+                <input type="hidden" id="balanced_leave<?php echo $row1[0];?>" name="balanced_leave<?php echo $row1[0];?>" value="<?php echo $balanced_leave;?>" />
+            </td>
         </tr>    
         
    <?php }?>
@@ -59,7 +63,7 @@ and open the template in the editor.
         <form name="application"  action="#" >
             <fieldset>
                 <legend>Apply For Leave</legend>
-<!--                <input typehttp://en.wikipedia.org/wiki/Graduate_Aptitude_Test_in_Engineering="hidden" name="userid" id="userid" value="<?php echo $USERID ?>" />-->
+<!--                <input type="hidden" name="userid" id="userid" value="<?php echo $USERID ?>" />-->
                     <div class="selectbox">
                         <span class="text">Leave Type</span>
                         <select name="leave_type" id="leave_type">
@@ -67,6 +71,7 @@ and open the template in the editor.
                             {
                             ?>
                             <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                           
                             <?php
                             }
                             ?>                
